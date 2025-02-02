@@ -1,0 +1,32 @@
+
+.page-container {
+    position: relative;
+    min-height: 50vh;
+}
+
+.transition-effect {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.transition-effect.enter {
+    opacity: 1;
+}
+
+.transition-effect.exit {
+    opacity: 0;
+}
+
+/* Hero.css additions */
+.cta-buttons .cta {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.cta-buttons .cta:hover {
+    transform: translateY(-3px);
+}
