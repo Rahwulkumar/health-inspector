@@ -1,100 +1,44 @@
-/* .login-container {
+/* src/pages/Login/Login.css */
+.login-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    background: #d7ead2;
+    width: 100vw;
+    background-color: #f4f4f4;
 }
 
 .login-box {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fff;
-    padding: 40px;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
 }
 
-.login-form {
-    max-width: 400px;
-    width: 100%;
-    text-align: left;
-}
-
-.login-form h1 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.login-form h2 {
-    font-size: 1.6rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.login-form p {
-    font-size: 1rem;
-    color: #555;
+.login-box h2 {
     margin-bottom: 20px;
 }
 
-.login-form label {
-    display: block;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-.login-form input {
+.login-box input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
+    margin: 10px 0;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 1rem;
 }
 
-.login-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.login-options label {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.login-options a {
-    font-size: 0.9rem;
-    color: #007bff;
-    text-decoration: none;
-}
-
-.login-btn {
+.login-box button {
     width: 100%;
-    background: #000;
-    color: #fff;
-    padding: 12px;
-    font-size: 1.1rem;
+    padding: 10px;
+    background: #007bff;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.signup-text {
-    margin-top: 15px;
-    font-size: 1rem;
-    text-align: center;
+.login-box button:hover {
+    background: #0056b3;
 }
-
-.signup-text a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.login-image {
-    width: 50%;
-    background: url("/login-image.png") no-repeat center/cover;
-} */
