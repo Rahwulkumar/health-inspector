@@ -3,7 +3,7 @@ import "./Team.css";
 
 const Team = () => {
   return (
-    <section className="team">
+    <section id = "team"className="team">
       <h2>Meet Our Team</h2>
       <p>We are a group of passionate professionals committed to making ingredient transparency accessible to everyone.</p>
       

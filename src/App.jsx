@@ -1,32 +1,21 @@
+// src/App.jsx
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
-import Hero from "./components/Hero/Hero";
-import About from "./components/About/About";
-import Team from "./components/Team/Team";
-import Footer from "./components/Footer/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Home/Home";  // ✅ Import Home Component
 import Login from "./pages/Login/Login";
+// import ProductForm from "./components/ProductForm/ProductForm";  // Import the ProductForm component
+import ProductList from "./components/ProductList/ProductList";  // Import the ProductList component
 import "./styles/App.css";
-
-function Home() {
-  return (
-    <>
-      <Navbar />
-      <Hero />
-      <About />
-      <Team />
-      <Footer />
-    </>
-  );
-}
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      {/* <Route path="/signup" element={<Signup />} /> */}
-    </Routes>
+    
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/product-list" element={<ProductList />} /> {/* Add new route for ProductList */}
+      </Routes>
+    
   );
 }
 
