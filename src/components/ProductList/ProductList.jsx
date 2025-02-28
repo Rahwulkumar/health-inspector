@@ -1,6 +1,5 @@
-// src/components/ProductList/ProductList.jsx
 import React, { useState, useEffect } from 'react';
-import { getAllProducts } from '../../services/apiService'; // Import the function to fetch all products
+import { getAllProducts } from '../../services/apiService';
 
 const ProductList = () => {
     const [products, setProducts] = useState([]);
