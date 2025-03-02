@@ -1,3 +1,26 @@
+/* src/styles/App.css */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0fff0;
+    /* Light green background */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.app-container>* {
+    flex-grow: 1;
+}
 
 .page-container {
     position: relative;
@@ -6,7 +29,7 @@
 
 .transition-effect {
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
     position: absolute;
     width: 100%;
     top: 0;
