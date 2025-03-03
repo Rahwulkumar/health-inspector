@@ -1,20 +1,11 @@
-/* src/styles/App.css */
-body,
-html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    font-family: Arial, sans-serif;
-}
-
+/* General layout */
 .app-container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background-color: #f0fff0;
     /* Light green background */
-    padding: 20px;
+    padding: 0px;
     box-sizing: border-box;
 }
 
@@ -23,17 +14,15 @@ html {
 }
 
 .page-container {
-    position: relative;
     min-height: 50vh;
+    padding-top: 60px;
 }
 
+/* Transitions */
 .transition-effect {
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    position: absolute;
     width: 100%;
-    top: 0;
-    left: 0;
 }
 
 .transition-effect.enter {
@@ -44,7 +33,7 @@ html {
     opacity: 0;
 }
 
-/* Hero.css additions */
+/* Hero Section */
 .cta-buttons .cta {
     cursor: pointer;
     transition: transform 0.3s ease;

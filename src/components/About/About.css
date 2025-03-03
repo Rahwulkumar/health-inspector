@@ -28,7 +28,8 @@
 }
 
 .about-image img {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     border-radius: 20px;
     position: relative;
     z-index: 2;

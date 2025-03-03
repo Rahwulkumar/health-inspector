@@ -1,10 +1,10 @@
-// src/components/Hero/Hero.jsx
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Hero.css";
 import foodImage from "../../assets/images/FoodAnalsisHomePage.png";
 import cosmeticImage from "../../assets/images/CosmeticsHomePage.png";
-
+import foodWave from "../../assets/images/foodWave.svg";
+import cosmeticWave from "../../assets/images/cosmeticWave.png";
 
 const Hero = () => {
   const [isCosmetic, setIsCosmetic] = useState(false);
@@ -21,8 +21,8 @@ const Hero = () => {
           products...
         </p>
         <div className="cta-buttons">
-          <Link to="/food-analysis" className="cta food"> {/* Ensure this path matches the one defined in App.jsx */}
-            <span>🍎</span> Food Analysis
+          <Link to="/product-list" className="cta food">
+            <span>🍎</span> View Products
           </Link>
           <Link to="/cosmetics-analysis" className="cta cosmetic">
             <span>💄</span> Cosmetic Analysis

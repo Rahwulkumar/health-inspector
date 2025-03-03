@@ -11,16 +11,19 @@ body {
 
 /* Navbar container */
 .navbar {
+  width: 100vw;
+  /* Ensures full width */
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 6%;
+  padding: 0 40px;
+  /* Increased padding for better spacing */
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 150%;
-  max-width: 100vw; /* Prevents any horizontal overflow */
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   z-index: 1000;
 }
 
@@ -31,8 +34,9 @@ body {
 }
 
 .navbar-logo img {
-  width: 12.95456rem;
-  height: 3.125rem;
+  width: 200px;
+  /* Adjusted for better visibility */
+  height: auto;
   flex-shrink: 0;
 }
 
@@ -40,7 +44,7 @@ body {
 .navbar-links {
   list-style: none;
   display: flex;
-  gap: 80px;
+  gap: 60px;
   justify-content: center;
   flex-grow: 1;
 }
@@ -55,12 +59,12 @@ body {
   color: black;
   font-weight: 500;
   font-size: 1rem;
-  transition: transform 0.2s ease-in-out;
+  transition: color 0.3s ease, transform 0.2s ease-in-out;
 }
 
 .navbar-links li a:hover {
-  transform: scale(1.1);
-  color: #8b8b8b;
+  transform: scale(1.05);
+  color: #646cff;
 }
 
 /* Authentication links */
@@ -74,28 +78,26 @@ body {
   color: black;
   text-decoration: none;
   font-weight: 500;
-  transition: transform 0.2s ease-in-out;
+  transition: color 0.3s ease-in-out;
 }
 
 .signup:hover {
-  transform: scale(1.1);
-  color: #8b8b8b;
+  color: #646cff;
 }
 
 .login {
   background-color: black;
   color: white;
-  padding: 8px 20px;
-  border-radius: 20px;
+  padding: 10px 25px;
+  border-radius: 25px;
   text-decoration: none;
   font-weight: 500;
-  transition: transform 0.2s ease-in-out;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
 }
 
 .login:hover {
   transform: scale(1.1);
-  background-color: #8b8b8b;
-  color: white;
+  background-color: #646cff;
 }
 
 /* Responsive Design */
@@ -105,7 +107,7 @@ body {
   }
 
   .navbar-links {
-    gap: 20px;
+    gap: 30px;
   }
 }
 
@@ -113,7 +115,7 @@ body {
   .navbar {
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding: 15px;
   }
 
   .navbar-links {
@@ -133,10 +135,10 @@ body {
   }
 
   .navbar-logo img {
-    width: 120px;
+    width: 150px;
   }
 
   .login {
-    padding: 6px 15px;
+    padding: 8px 20px;
   }
 }

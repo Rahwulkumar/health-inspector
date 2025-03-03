@@ -4,7 +4,7 @@ import aboutImage from "../../assets/images/about-image.png"; // Replace with ac
 
 const About = () => {
   return (
-    <section id ="about" className="about">
+    <section id="about" className="about">
       <div className="about-content">
         <h2>About Project</h2>
         <p>

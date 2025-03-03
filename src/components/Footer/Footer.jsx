@@ -1,7 +1,7 @@
 import "./Footer.css";
 import { FaFacebook, FaLinkedin, FaInstagram, FaTwitter } from "react-icons/fa";
-import mastercardLogo from "../../assets/images/amex.png";
-import discoverLogo from "../../assets/images/visa.png";
+import mastercardLogo from "../../assets/images/visa.png";
+import discoverLogo from "../../assets/images/amex.png";
 
 const Footer = () => {
   return (
@@ -43,7 +43,6 @@ const Footer = () => {
         <div className="footer-payment">
           <p>© 2024, All rights reserved</p>
           <div className="payment-logos">
-            {/* <img src={visaLogo} alt="Visa" /> */}
             <img src={mastercardLogo} alt="Mastercard" />
             <img src={discoverLogo} alt="Discover" />
           </div>
