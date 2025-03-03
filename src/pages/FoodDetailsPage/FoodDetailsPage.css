@@ -1,0 +1,317 @@
+src/pages/FoodDetailsPage/FoodDetailsPage.css
+.food-details-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.details-container {
+    flex: 1;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.loading-spinner,
+.error-message,
+.not-found {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.error-message {
+    color: #ff4d4d;
+}
+
+.back-button {
+    margin-bottom: 20px;
+}
+
+.back-button a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.back-button a:hover {
+    color: #ff4d4d;
+}
+
+.product-header {
+    margin-bottom: 30px;
+}
+
+.product-header h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-category {
+    font-size: 1.2rem;
+    color: #666;
+    background-color: #f1f1f1;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.product-content {
+    display: flex;
+    gap: 40px;
+}
+
+.product-info {
+    flex: 1;
+}
+
+/* Health Score Styling */
+.health-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.score-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.score-circle.excellent {
+    background-color: #4CAF50;
+}
+
+.score-circle.good {
+    background-color: #8BC34A;
+}
+
+.score-circle.moderate {
+    background-color: #FFC107;
+}
+
+.score-circle.poor {
+    background-color: #FF5722;
+}
+
+.score-label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.score-description {
+    text-align: center;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Tabs Styling */
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.tab-button:hover {
+    color: #333;
+}
+
+.tab-button.active {
+    color: #ff4d4d;
+    font-weight: 500;
+}
+
+.tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ff4d4d;
+}
+
+.tab-content {
+    min-height: 300px;
+}
+
+/* Nutrition Facts Styling */
+.nutrition-facts {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nutrition-facts h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+.nutrition-header {
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.nutrition-table {
+    width: 100%;
+}
+
+.nutrition-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.nutrition-row.header {
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+}
+
+.nutrition-row span {
+    padding: 5px;
+}
+
+/* Ingredients Styling */
+.ingredients-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ingredients-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+.ingredients-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.ingredient-item {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ingredient-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ingredient-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.ingredient-header h4 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.ingredient-type {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.component-harmful {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.component-healthy {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.component-neutral {
+    background-color: #f5f5f5;
+    color: #616161;
+}
+
+.ingredient-details {
+    margin-top: 10px;
+    color: #555;
+}
+
+.warning {
+    color: #e53935;
+}
+
+.benefit {
+    color: #43a047;
+}
+
+.exceeds-limit {
+    font-weight: bold;
+    color: #d32f2f;
+}
+
+.meets-threshold {
+    font-weight: bold;
+    color: #388e3c;
+}
+
+.no-data {
+    color: #757575;
+    font-style: italic;
+    padding: 20px;
+    text-align: center;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .details-container {
+        padding: 20px;
+    }
+
+    .product-content {
+        flex-direction: column;
+    }
+
+    .ingredients-list {
+        grid-template-columns: 1fr;
+    }
+
+    .product-header h2 {
+        font-size: 1.8rem;
+    }
+}

@@ -13,6 +13,8 @@ const ProductCard = ({ product }) => {
             <div className="product-info">
                 <h3>{product.name}</h3>
                 <p>Harm Score: {product.final_score.toFixed(2)}</p>
+                <p>Harm Score: {product.final_score?.toFixed(2) || 'N/A'}</p>
+ 
                 <button className="read-more-btn">Read more</button>
             </div>
         </div>
