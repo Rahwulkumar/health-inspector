@@ -14,30 +14,30 @@ const ProductList = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-    const fetchProducts = async () => {
-        try {
-            const fetchedProducts = await getAllProducts();
-            console.log('Fetched Products:', fetchedProducts); // Log the response
-            setProducts(fetchedProducts);
-            setFilteredProducts(fetchedProducts);
-        } catch (error) {
-            setError('Failed to fetch products. Please try again later.');
-            console.error('Error fetching products:', error);
-        } finally {
-            setLoading(false);
-        }
-    };
+        const fetchProducts = async () => {
+            try {
+                const fetchedProducts = await getAllProducts();
+                console.log('Fetched Products:', fetchedProducts); // Log the response
+                setProducts(fetchedProducts);
+                setFilteredProducts(fetchedProducts);
+            } catch (error) {
+                setError('Failed to fetch products. Please try again later.');
+                console.error('Error fetching products:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
 
-    fetchProducts();
-}, []);
+        fetchProducts();
+    }, []);
 
     // Handle search in real-time
     useEffect(() => {
-    const filtered = products.filter((product) =>
-        product.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setFilteredProducts(filtered);
-}, [searchQuery, products]);
+        const filtered = products.filter((product) =>
+            product.name.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+        setFilteredProducts(filtered);
+    }, [searchQuery, products]);
 
     return (
         <>
