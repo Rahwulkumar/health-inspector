@@ -1,9 +1,9 @@
 // src/App.jsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./components/Home/Home";  
+import Home from "./components/Home/Home";
 import Login from "./pages/Login/Login";
-import ProductList from "./components/ProductList/ProductList";  
+import ProductList from "./components/ProductList/ProductList";
 import "./styles/App.css";
 
 function App() {
