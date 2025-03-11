@@ -1,144 +1,109 @@
-/* Ensure no horizontal scroll */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Import Poppins font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* Apply Poppins to all navbar elements */
+.navbar,
+.navbar * {
+  font-family: "Poppins", sans-serif;
 }
 
-body {
-  overflow-x: hidden;
+/* Fix Navbar Overlapping Hero Section */
+.hero-section {
+  padding-top: 90px;
 }
 
-/* Navbar container */
-.navbar {
-  width: 100vw;
-  /* Ensures full width */
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 40px;
-  /* Increased padding for better spacing */
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
+/* Keep Logo Size Slightly Larger */
+.logo {
+  width: 220px;
+}
+
+/* Login Button Hover Effect */
+.login-button {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  font-size: 18px !important;
+  padding: 10px 40px !important;
+}
+
+.login-button:hover {
+  background-color: #8b8b8b !important;
+  border-color: #8b8b8b !important;
+}
+
+/* stroke */
+nav.stroke ul li a,
+nav.fill ul li a {
+  position: relative;
+}
+nav.stroke ul li a:after,
+nav.fill ul li a:after {
+  position: absolute;
+  bottom: 0;
   left: 0;
-  z-index: 1000;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: ".";
+  color: transparent;
+  background: #aaa;
+  height: 1px;
+}
+nav.stroke ul li a:hover:after {
+  width: 100%;
 }
 
-/* Logo */
-.navbar-logo {
-  display: flex;
-  align-items: center;
+nav.fill ul li a {
+  transition: all 2s;
 }
 
-.navbar-logo img {
-  width: 200px;
-  /* Adjusted for better visibility */
-  height: auto;
-  flex-shrink: 0;
+nav.fill ul li a:after {
+  text-align: left;
+  content: ".";
+  margin: 0;
+  opacity: 0;
+}
+nav.fill ul li a:hover {
+  color: #fff;
+  z-index: 1;
+}
+nav.fill ul li a:hover:after {
+  z-index: -10;
+  animation: fill 1s forwards;
+  -webkit-animation: fill 1s forwards;
+  -moz-animation: fill 1s forwards;
+  opacity: 1;
 }
 
-/* Navbar links */
-.navbar-links {
-  list-style: none;
-  display: flex;
-  gap: 60px;
-  justify-content: center;
-  flex-grow: 1;
+/* Navbar Link Hover Effect */
+.navbar-nav .nav-link {
+  font-size: 17px !important;
+  position: relative;
 }
 
-.navbar-links li {
-  display: flex;
-  align-items: center;
+.navbar-nav .nav-link:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: ".";
+  color: transparent;
+  background: #000000;
+  height: 1px;
+  transition: width 0.3s;
 }
 
-.navbar-links li a {
-  text-decoration: none;
-  color: black;
-  font-weight: 500;
-  font-size: 1rem;
-  transition: color 0.3s ease, transform 0.2s ease-in-out;
+.navbar-nav .nav-link:hover:after {
+  width: 100%;
 }
 
-.navbar-links li a:hover {
-  transform: scale(1.05);
-  color: #646cff;
+/* Authentication Button Styles */
+.btn {
+  font-size: 18px !important;
 }
 
-/* Authentication links */
-.navbar-auth {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.signup {
-  color: black;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease-in-out;
-}
-
-.signup:hover {
-  color: #646cff;
-}
-
-.login {
-  background-color: black;
-  color: white;
-  padding: 10px 25px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
-}
-
-.login:hover {
-  transform: scale(1.1);
-  background-color: #646cff;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 1024px) {
-  .navbar {
-    padding: 15px 5%;
-  }
-
-  .navbar-links {
-    gap: 30px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-  }
-
-  .navbar-links {
-    flex-direction: column;
-    gap: 15px;
-    padding: 10px 0;
-  }
-
-  .navbar-auth {
-    margin-top: 10px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .navbar-links {
-    gap: 10px;
-  }
-
-  .navbar-logo img {
-    width: 150px;
-  }
-
-  .login {
-    padding: 8px 20px;
-  }
+/* Adjust spacing between auth buttons */
+.me-3 {
+  margin-right: 0.75rem !important; /* Reduces from 1rem (default) to 0.75rem */
 }
