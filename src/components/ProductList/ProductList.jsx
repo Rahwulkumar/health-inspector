@@ -1,70 +1,50 @@
-// src/components/ProductList/ProductList.jsx
-import React, { useState, useEffect } from 'react';
-import { getAllProducts } from '../../services/apiService';
+import React, { useState } from 'react';
+import { getProductByBarcode } from '../../services/apiService';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import ProductCard from '../ProductCard/ProductCard';
 import './ProductList.css';
 
 const ProductList = () => {
-    const [searchQuery, setSearchQuery] = useState('');
-    const [products, setProducts] = useState([]);
-    const [filteredProducts, setFilteredProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [barcode, setBarcode] = useState('');
+    const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const fetchedProducts = await getAllProducts();
-                console.log('Fetched Products:', fetchedProducts); // Log the response
-                setProducts(fetchedProducts);
-                setFilteredProducts(fetchedProducts);
-            } catch (error) {
-                setError('Failed to fetch products. Please try again later.');
-                console.error('Error fetching products:', error);
-            } finally {
-                setLoading(false);
-            }
-        };
+    const handleSearch = async () => {
+        setLoading(true);
+        setError(null);
 
-        fetchProducts();
-    }, []);
+        const fetchedProduct = await getProductByBarcode(barcode);
 
-    // Handle search in real-time
-    useEffect(() => {
-        const filtered = products.filter((product) =>
-            product.name.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-        setFilteredProducts(filtered);
-    }, [searchQuery, products]);
+        if (fetchedProduct) {
+            setProduct(fetchedProduct);
+        } else {
+            setError('Product not found.');
+        }
+
+        setLoading(false);
+    };
 
     return (
         <>
             <Navbar />
             <div className="product-list-container">
-                <h2>Product List</h2>
+                <h2>Search Product by Barcode</h2>
                 <div className="search-container">
                     <input
                         type="text"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        placeholder="Search for a product..."
+                        value={barcode}
+                        onChange={(e) => setBarcode(e.target.value)}
+                        placeholder="Enter product barcode..."
                     />
+                    <button onClick={handleSearch}>Search</button>
                 </div>
 
-                {loading && <p>Loading products...</p>}
-                {error && <p>{error}</p>}
+                {loading && <p>Loading...</p>}
+                {error && <p className="error">{error}</p>}
 
-                <div className="product-grid">
-                    {filteredProducts.length > 0 ? (
-                        filteredProducts.map((product) => (
-                            <ProductCard key={product.id} product={product} />
-                        ))
-                    ) : (
-                        <p>No products found.</p>
-                    )}
-                </div>
+                {product && <ProductCard product={product} />}
             </div>
             <Footer />
         </>

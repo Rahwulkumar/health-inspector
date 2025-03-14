@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "bootstrap/dist/css/bootstrap.min.css";
 import foodImage from "../../assets/images/FoodAnalysisHomePage.png"; // Default Image
 import cosmeticImage from "../../assets/images/CosmeticsHomePage.png"; // Hover Image
@@ -52,20 +53,23 @@ const Hero = () => {
             and harmful effects.
           </p>
           <div className="d-flex gap-3">
-            <a
-              href="/food-analysis"
+            {/* Food Analysis Button */}
+            <Link
+              to="/product-list" // Use Link for navigation
               className="btn btn-dark d-flex align-items-center px-4"
             >
               <i className="bi bi-box-seam me-2"></i> Food Analysis
-            </a>
-            <a
-              href="/cosmetic-analysis"
+            </Link>
+
+            {/* Cosmetic Analysis Button */}
+            <Link
+              to="/cosmetic-analysis" // Use Link for navigation
               className="btn btn-outline-success d-flex align-items-center px-4"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
               <i className="bi bi-eyedropper me-2"></i> Cosmetic Analysis
-            </a>
+            </Link>
           </div>
         </div>
 
