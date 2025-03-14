@@ -31,7 +31,7 @@ const Hero = () => {
           left: "-60px",
           width: "824px",
           height: "765px",
-          zIndex: "-1", // Ensures it stays behind everything
+          zIndex: "-1",
           transition: "0.3s ease-in-out",
         }}
       />
@@ -40,7 +40,7 @@ const Hero = () => {
         {/* Left Side (Text & Buttons) */}
         <div
           className="col-lg-6 d-flex flex-column justify-content-center text-content"
-          style={{ position: "relative", zIndex: "1" }} // Ensures text is above cloud
+          style={{ position: "relative", zIndex: "1" }}
         >
           <h1 className="fw-bold" style={{ fontSize: "3rem" }}>
             Empower. Evaluate. Evolve.
@@ -69,38 +69,38 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right Side (Image) */}
-        <div className="col-lg-6 d-flex justify-content-center">
-          <div
-            className="position-relative"
-            style={{ width: "80%", maxWidth: "500px" }}
-          >
-            {/* Background Circle SVG */}
-            <img
-              src={isHovered ? circlePink : circleGreen}
-              alt="Background Shape"
-              className="position-absolute"
-              style={{
-                width: "100%",
-                height: "100%",
-                borderRadius: "50%",
-                top: "10%",
-                left: "5%",
-                zIndex: "-1",
-                transition: "0.3s ease-in-out",
-              }}
-            />
+        {/* Right Side */}
+        <div className="col-lg-6 d-flex justify-content-center position-relative">
+          {/* Fixed Background Circle */}
+          <img
+            src={isHovered ? circlePink : circleGreen}
+            alt="Background Shape"
+            className="position-absolute"
+            style={{
+              width: "250%", // Adjust the size as needed
+              height: "200%",
+              // borderRadius: "10%",
+              top: "110%",
+              right: "-90%", // Push it to the right
+              transform: "translateY(-50%)",
+              zIndex: "-1",
+              transition: "0.3s ease-in-out",
+            }}
+          />
 
-            {/* Image Swap */}
-            <img
-              src={isHovered ? cosmeticImage : foodImage}
-              alt="Product Analysis"
-              className="img-fluid rounded-circle shadow"
-              style={{
-                transition: "0.3s ease-in-out",
-              }}
-            />
-          </div>
+          {/* Image (Independent Transition) */}
+          <img
+            src={isHovered ? cosmeticImage : foodImage}
+            alt="Product Analysis"
+            className="img-fluid rounded-circle position-relative"
+            style={{
+              width: "95%",
+              height: "95%",
+              top: "20%",
+
+              transition: "0.3s ease-in-out",
+            }}
+          />
         </div>
       </div>
     </section>
