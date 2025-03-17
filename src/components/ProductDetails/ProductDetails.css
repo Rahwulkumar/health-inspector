@@ -1,0 +1,34 @@
+.product-details {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.product-image {
+    width: 200px;
+    height: auto;
+    margin: 10px;
+}
+
+.details-container {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.nutrition-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.nutrition-table th,
+.nutrition-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.nutrition-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
