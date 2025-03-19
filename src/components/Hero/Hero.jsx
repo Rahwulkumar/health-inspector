@@ -27,7 +27,6 @@ const Hero = () => {
         zIndex: "0",
       }}
     >
-      {/* SVG Cloud (Top Left) */}
       <img
         src={isHovered ? cloudPink : cloudGreen}
         alt="Cloud"
@@ -43,7 +42,6 @@ const Hero = () => {
       />
 
       <div className="row w-100">
-        {/* Left Side (Text & Buttons) */}
         <div
           className="col-lg-6 d-flex flex-column justify-content-center text-content"
           style={{ position: "relative", zIndex: "1" }}
@@ -69,10 +67,9 @@ const Hero = () => {
             and harmful effects.
           </p>
           <div className="d-flex gap-3">
-            {/* Food Analysis Button */}
             <Link
               to="/product-list"
-              className="btn d-flex align-items-center  rounded-pill food-btn"
+              className="btn d-flex align-items-center rounded-pill food-btn"
               style={{
                 backgroundColor: isHovered ? "transparent" : "black",
                 color: isHovered ? "black" : "white",
@@ -93,7 +90,6 @@ const Hero = () => {
               </span>
             </Link>
 
-            {/* Cosmetic Analysis Button */}
             <Link
               to="/cosmetic-analysis"
               className="btn d-flex align-items-center rounded-pill cosmetic-btn"
@@ -119,9 +115,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right Side */}
         <div className="col-lg-6 d-flex justify-content-center position-relative">
-          {/* Fixed Background Circle */}
           <img
             src={isHovered ? circlePink : circleGreen}
             alt="Background Shape"
@@ -137,18 +131,24 @@ const Hero = () => {
             }}
           />
 
-          {/* Image with Animated Path */}
           <img
-            src={isHovered ? cosmeticImage : foodImage}
-            alt="Product Analysis"
-            className={`img-fluid rounded-circle position-relative product-image ${
-              isHovered ? "hovered" : "reverse-hovered"
+            src={foodImage}
+            alt="Food Analysis"
+            className={`img-fluid rounded-circle position-relative fproduct-image ${
+              isHovered ? "food-hover" : "food-return"
+            }`}
+          />
+
+          <img
+            src={cosmeticImage}
+            alt="Cosmetic Analysis"
+            className={`img-fluid rounded-circle position-relative cproduct-image ${
+              isHovered ? "cosmetic-reverse" : "cosmetic-hover"
             }`}
           />
         </div>
       </div>
 
-      {/* CSS for hover effects */}
       <style>
         {`
           .cosmetic-btn:hover {
@@ -157,21 +157,38 @@ const Hero = () => {
             border: black !important;
           }
 
-          .product-image {
-            width: 92%;
-            height: 92%;
-            top: 20%;
+          .fproduct-image {
+            width: 100%;
+            height: 100%;
+            top: 25%;
+            left: 30%;
             transition: 0.6s ease-in-out;
             clip-path: circle(50% at 50% 50%);
           }
 
-          /* Curved Motion Animation */
-          .hovered {
+          .cproduct-image {
+            width: 100%;
+            height: 100%;
+            top: 26%;
+            right: 48%;
+            transition: 0.6s ease-in-out;
+            clip-path: circle(50% at 50% 50%);
+          }
+
+          .cosmetic-reverse {
+            animation: curvedMoveReverse 0.3s ease-in-out forwards;
+          }
+
+          .cosmetic-hover {
             animation: curvedMove 0.3s ease-in-out forwards;
           }
 
-          .reverse-hovered {
-            animation: curvedMoveReverse 0.3s ease-in-out forwards;
+          .food-hover {
+            animation: downMove 0.3s ease-in-out forwards;
+          }
+
+          .food-return {
+            animation: upMove 0.3s ease-in-out forwards;
           }
 
           @keyframes curvedMove {
@@ -205,6 +222,37 @@ const Hero = () => {
             90% { transform: translateX(40px) translateY(-50px); }
             100% { transform: translateX(0px) translateY(0px); }
           }
+
+          @keyframes downMove {
+            0% { transform: translate(0px, 0px); }
+            10% { transform: translate(-5px, 30px); }
+            20% { transform: translate(-5px, 50px); }
+            30% { transform: translate(-8px, 60px); }
+            40% { transform: translate(-10px, 100px); }
+            50% { transform: translate(-10px, 150px); }
+            60% { transform: translate(-15px, 200px); }
+            70% { transform: translate(-18px, 230px); }
+            80% { transform: translate(-20px, 280px); }
+            90% { transform: translate(-30px, 300px); }
+            95% { transform: translate(-50px, 370px); }
+            100% { transform: translate(-60px, 560px); }
+          }
+
+          @keyframes upMove {
+            0% { transform: translate(-60px, 560px); }
+            5% { transform: translate(-50px, 370px); }
+            10% { transform: translate(-30px, 300px); }
+            20% { transform: translate(-20px, 280px); }
+            30% { transform: translate(-18px, 230px); }
+            40% { transform: translate(-15px, 200px); }
+            50% { transform: translate(-10px, 150px); }
+            60% { transform: translate(-10px, 100px); }
+            70% { transform: translate(-8px, 60px); }
+            80% { transform: translate(-5px, 50px); }
+            90% { transform: translate(-5px, 30px); }
+            100% { transform: translate(0px, 0px); }
+}
+
         `}
       </style>
     </section>
