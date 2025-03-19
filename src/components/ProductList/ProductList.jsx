@@ -1,6 +1,8 @@
-// src/components/ProductList.jsx
+// src/components/ProductList/ProductList.jsx
 import React, { useState } from "react";
 import ProductCard from "../ProductCard/ProductCard";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 import "./ProductList.css";
 
 const ProductList = () => {
@@ -29,22 +31,31 @@ const ProductList = () => {
   };
 
   return (
-    <div className="product-list">
-      <h1>Search Product by Barcode</h1>
-      <div className="search-container">
-        <input
-          type="text"
-          placeholder="Enter barcode..."
-          value={barcode}
-          onChange={(e) => setBarcode(e.target.value)}
-        />
-        <button onClick={fetchProductByBarcode}>Search</button>
-      </div>
+    <>
+      <Navbar />
+      <div className="product-list">
+        <h1 className="title">Search for Products by Barcode</h1>
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Enter barcode..."
+            value={barcode}
+            onChange={(e) => setBarcode(e.target.value)}
+          />
+          <button onClick={fetchProductByBarcode}>Search</button>
+        </div>
 
-      {loading && <p>Loading...</p>}
-      {error && <p className="error">{error}</p>}
-      {product && <ProductCard product={product} />}
-    </div>
+        {loading && <p className="loading">Loading...</p>}
+        {error && <p className="error">{error}</p>}
+        {product ? (
+          <ProductCard product={product} />
+        ) : (
+          !loading &&
+          !error && <p className="no-results">No results found. Try another barcode.</p>
+        )}
+      </div>
+      <Footer />
+    </>
   );
 };
 
