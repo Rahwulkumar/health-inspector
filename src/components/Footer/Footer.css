@@ -1,78 +1,60 @@
 .footer {
-    background: black;
-    color: white;
-    padding: 50px 100px;
+  font-family: Arial, sans-serif;
 }
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+#footer {
+  max-width: 92%;
 }
 
-.footer-company h2 {
-    font-size: 24px;
-    font-weight: bold;
+.logo-img {
+  width: 220px; /* Adjust logo size */
+  height: auto;
 }
 
-.footer-company span {
-    color: #f8f8f8;
+.footer-info p {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 8px;
+  padding-bottom: 5px;
 }
 
-.footer-company p {
-    margin: 5px 0;
-    font-size: 14px;
+.footer-info .icon {
+  margin-right: 8px;
+  font-size: 16px;
 }
 
-.footer-links {
-    display: flex;
-    gap: 50px;
-}
-
-.footer-links h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.footer-links p {
-    font-size: 14px;
-    margin: 5px 0;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.footer-links p:hover {
-    color: #f8f8f8;
-}
-
-.footer-payment {
-    text-align: center;
-}
-
-.payment-logos img {
-    width: 50px;
-    margin: 5px;
+.payment-img {
+  width: 160px;
+  height: auto;
 }
 
 .social-icons {
-    display: flex;
-    gap: 10px;
-    font-size: 20px;
-    margin-top: 15px;
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 
-.social-icons svg {
-    transition: 0.3s;
+.social-icon {
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
-.social-icons svg:hover {
-    color: #f8f8f8;
+.social-icon:hover {
+  color: #ff6600;
 }
 
-@media screen and (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
+ul {
+  padding: 0;
+}
+
+ul li {
+  font-size: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+ul li:hover {
+  color: #ff6600;
 }

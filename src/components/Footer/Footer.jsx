@@ -1,56 +1,107 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./Footer.css";
-import { FaFacebook, FaLinkedin, FaInstagram, FaTwitter } from "react-icons/fa";
-import mastercardLogo from "../../assets/images/visa.png";
-import discoverLogo from "../../assets/images/amex.png";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaClock,
+  FaMapMarkerAlt,
+  FaFacebook,
+  FaLinkedin,
+  FaInstagram,
+  FaTwitter,
+} from "react-icons/fa";
+import logo from "../../assets/images/logo-white.png";
+import paymentLogo from "../../assets/images/payment.png";
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-container">
-        {/* Left Section - Company Info */}
-        <div className="footer-company">
-          <h2>Health <span>Inspector</span></h2>
-          <p>📍 Address: 1762 School House Road</p>
-          <p>📞 Call Us: 1233-777</p>
-          <p>✉️ Email: healthinspector@contact.com</p>
-          <p>⏰ Work Hours: 8:00 - 20:00, Sunday - Thursday</p>
+    <footer className="footer bg-black text-white py-5">
+      <div id="footer" className="container-fluid px-5">
+        {/* First Row - Logo & Empty Columns */}
+        <div className="row mb-3">
+          <div className="col-md-3 d-flex align-items-start">
+            <img src={logo} alt="Health Inspector" className="logo-img" />
+          </div>
+          <div className="col-md-3"></div>
+          <div className="col-md-3"></div>
+          <div className="col-md-3"></div>
         </div>
 
-        {/* Middle Section - Links */}
-        <div className="footer-links">
-          <div>
-            <h3>Account</h3>
-            <p>Profile</p>
-            <p>History</p>
-            <p>Payments</p>
+        {/* Second Row - Footer Content (4 Columns) */}
+        <div className="row py-3">
+          {/* Left Section - Contact Info */}
+          <div className="col-md-3 px-4">
+            <div className="footer-info">
+              <p>
+                <FaMapMarkerAlt className="icon" /> Address: 1762 School House
+                Road
+              </p>
+              <p>
+                <FaPhone className="icon" /> Call Us: 1233-777
+              </p>
+              <p>
+                <FaEnvelope className="icon" /> Email:
+                healthinspector@contact.com
+              </p>
+              <p>
+                <FaClock className="icon" /> Work hours: 8:00 - 20:00, Sunday -
+                Thursday
+              </p>
+            </div>
           </div>
-          <div>
-            <h3>Useful Links</h3>
-            <p>About Us</p>
-            <p>Contact</p>
+
+          {/* Middle Section - Links (3 Columns) */}
+          <div className="col-md-3">
+            <h5 className="fw-bold">Account</h5>
+            <ul className="list-unstyled">
+              <li>Profile</li>
+              <li>History</li>
+              <li>Payments</li>
+            </ul>
           </div>
-          <div>
-            <h3>Help Center</h3>
-            <p>Payments</p>
-            <p>Refund</p>
-            <p>Checkout</p>
-            <p>Q&A</p>
-            <p>Privacy Policy</p>
+          <div className="col-md-3">
+            <h5 className="fw-bold">Useful Links</h5>
+            <ul className="list-unstyled">
+              <li>About Us</li>
+              <li>Contact</li>
+            </ul>
+          </div>
+          <div className="col-md-3">
+            <h5 className="fw-bold">Help Center</h5>
+            <ul className="list-unstyled">
+              <li>Payments</li>
+              <li>Refund</li>
+              <li>Checkout</li>
+              <li>Q&A</li>
+              <li>Privacy Policy</li>
+            </ul>
           </div>
         </div>
 
-        {/* Right Section - Payment & Social */}
-        <div className="footer-payment">
-          <p>© 2024, All rights reserved</p>
-          <div className="payment-logos">
-            <img src={mastercardLogo} alt="Mastercard" />
-            <img src={discoverLogo} alt="Discover" />
+        {/* Bottom Section - Payment, Social Links & Copyright in 3 Columns */}
+        <div className="row pt-3 border-top border-secondary d-flex align-items-center text-center">
+          {/* Payment Logo (Left) */}
+          <div className="col-md-4 text-md-start">
+            <img
+              src={paymentLogo}
+              alt="Payment Methods"
+              className="payment-img"
+            />
           </div>
-          <div className="social-icons">
-            <FaFacebook />
-            <FaLinkedin />
-            <FaInstagram />
-            <FaTwitter />
+
+          {/* Social Media Icons (Center) */}
+          <div className="col-md-4 text-center">
+            <div className="social-icons">
+              <FaFacebook className="social-icon mx-2" />
+              <FaLinkedin className="social-icon mx-2" />
+              <FaInstagram className="social-icon mx-2" />
+              <FaTwitter className="social-icon mx-2" />
+            </div>
+          </div>
+
+          {/* Copyright (Right) */}
+          <div className="col-md-4 text-md-end">
+            <p className="m-0">© 2024, All rights reserved</p>
           </div>
         </div>
       </div>
