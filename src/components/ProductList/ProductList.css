@@ -3,17 +3,19 @@
 /* Overall container styling */
 .product-list {
     text-align: center;
-    padding: 40px 20px;
-    background-color: #f9f9f9;
+    padding: 60px 20px;
+    background-color: #fdfdfd;
     min-height: 80vh;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Title styling */
 .title {
-    font-size: 2.5rem;
-    font-weight: 600;
+    padding-top: 5%;
+    font-size: 2.8rem;
+    font-weight: 700;
     color: #222;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 /* Search container for input and button */
@@ -21,33 +23,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 16px;
+    margin-bottom: 30px;
 }
 
 input[type="text"] {
-    width: 300px;
-    padding: 12px;
+    width: 350px;
+    padding: 14px;
     font-size: 1rem;
-    border-radius: 25px;
+    border-radius: 30px;
     border: 1px solid #ccc;
     background-color: #fff;
     transition: all 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 input[type="text"]:focus {
     border-color: #007bff;
     outline: none;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.4);
 }
 
 /* Search button styling */
 button {
-    padding: 12px 30px;
+    padding: 14px 40px;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -57,7 +60,7 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Loader, error and no result message styling */
+/* Loader, error, and no result message styling */
 .loading,
 .error,
 .no-results {
@@ -68,16 +71,17 @@ button:hover {
 
 /* Error specific styling */
 .error {
-    color: #ff4d4d;
+    color: #dc3545;
+    font-weight: bold;
 }
 
 /* Responsive design for smaller screens */
 @media (max-width: 600px) {
     input[type="text"] {
-        width: 80%;
+        width: 90%;
     }
 
     button {
-        padding: 10px 20px;
+        padding: 12px 25px;
     }
 }
