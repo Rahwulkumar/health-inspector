@@ -1,16 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
 .footer {
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
+  background-color: black;
+  color: white;
+  width: 100%;
+  position: relative; /* Ensures footer is above other elements */
+  z-index: 9999; /* High z-index to stay on top */
 }
 
 #footer {
-  max-width: 92%;
+  max-width: 95%;
+  margin: auto;
 }
 
+/* Footer Logo */
 .logo-img {
   width: 220px; /* Adjust logo size */
   height: auto;
 }
 
+/* Footer Contact Info */
 .footer-info p {
   display: flex;
   align-items: center;
@@ -24,11 +34,13 @@
   font-size: 16px;
 }
 
+/* Payment Logo */
 .payment-img {
   width: 160px;
   height: auto;
 }
 
+/* Social Icons */
 .social-icons {
   display: flex;
   justify-content: center;
@@ -44,6 +56,7 @@
   color: #ff6600;
 }
 
+/* Footer Links */
 ul {
   padding: 0;
 }
@@ -57,4 +70,32 @@ ul li {
 
 ul li:hover {
   color: #ff6600;
+}
+
+/* Sticky Footer on Scroll */
+.sticky-footer {
+  position: fixed; /* Fixes footer at the bottom */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .footer-info p {
+    font-size: 12px;
+  }
+
+  .social-icon {
+    font-size: 18px;
+  }
+
+  .logo-img {
+    width: 180px;
+  }
+
+  .payment-img {
+    width: 140px;
+  }
 }

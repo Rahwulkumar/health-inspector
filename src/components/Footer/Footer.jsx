@@ -30,7 +30,7 @@ const Footer = () => {
         {/* Second Row - Footer Content (4 Columns) */}
         <div className="row py-3">
           {/* Left Section - Contact Info */}
-          <div className="col-md-3 px-4">
+          <div className="col-md-3 ">
             <div className="footer-info">
               <p>
                 <FaMapMarkerAlt className="icon" /> Address: 1762 School House
@@ -51,7 +51,7 @@ const Footer = () => {
           </div>
 
           {/* Middle Section - Links (3 Columns) */}
-          <div className="col-md-3">
+          <div className="col-md-3 px-5">
             <h5 className="fw-bold">Account</h5>
             <ul className="list-unstyled">
               <li>Profile</li>
@@ -59,14 +59,14 @@ const Footer = () => {
               <li>Payments</li>
             </ul>
           </div>
-          <div className="col-md-3">
+          <div className="col-md-3 px-5">
             <h5 className="fw-bold">Useful Links</h5>
             <ul className="list-unstyled">
               <li>About Us</li>
               <li>Contact</li>
             </ul>
           </div>
-          <div className="col-md-3">
+          <div className="col-md-3 px-5">
             <h5 className="fw-bold">Help Center</h5>
             <ul className="list-unstyled">
               <li>Payments</li>
@@ -78,10 +78,15 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Section - Payment, Social Links & Copyright in 3 Columns */}
+        {/* Bottom Section - Updated Order: Copyright (Right) → Payment Logo (Middle) → Social Links (Left) */}
         <div className="row pt-3 border-top border-secondary d-flex align-items-center text-center">
-          {/* Payment Logo (Left) */}
+          {/* Copyright (Right) */}
           <div className="col-md-4 text-md-start">
+            <p className="m-0">© 2024, All rights reserved</p>
+          </div>
+
+          {/* Payment Logo (Middle) */}
+          <div className="col-md-4 text-center">
             <img
               src={paymentLogo}
               alt="Payment Methods"
@@ -89,19 +94,14 @@ const Footer = () => {
             />
           </div>
 
-          {/* Social Media Icons (Center) */}
-          <div className="col-md-4 text-center">
+          {/* Social Media Icons (Left) */}
+          <div className="col-md-4 text-md-end">
             <div className="social-icons">
               <FaFacebook className="social-icon mx-2" />
               <FaLinkedin className="social-icon mx-2" />
               <FaInstagram className="social-icon mx-2" />
               <FaTwitter className="social-icon mx-2" />
             </div>
-          </div>
-
-          {/* Copyright (Right) */}
-          <div className="col-md-4 text-md-end">
-            <p className="m-0">© 2024, All rights reserved</p>
           </div>
         </div>
       </div>

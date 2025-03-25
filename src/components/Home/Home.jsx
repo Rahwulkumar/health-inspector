@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../Navbar/Navbar"; 
+import Navbar from "../Navbar/Navbar";
 import Hero from "../Hero/Hero";
 import About from "../About/About";
 import Team from "../Team/Team";
@@ -9,9 +9,15 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <Hero />
-      <About />
-      <Team />
+      <div id="hero">
+        <Hero />
+      </div>
+      <div id="about">
+        <About />
+      </div>
+      <div id="team">
+        <Team />
+      </div>
       <Footer />
     </>
   );
