@@ -1,22 +1,50 @@
 import React from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom"; // Import routing hooks
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../../assets/icons/logo.svg";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const location = useLocation(); // Get current URL
+  const navigate = useNavigate(); // Navigation function
+
+  // Function to handle scrolling/navigation
+  const handleNavClick = (sectionId) => {
+    if (location.pathname !== "/") {
+      // If not on the home page, navigate to Home first
+      navigate("/", { replace: true });
+
+      // Wait for navigation to complete before scrolling
+      setTimeout(() => {
+        scrollToSection(sectionId);
+      }, 100); // Small delay to ensure the page loads
+    } else {
+      // If already on Home, just scroll
+      scrollToSection(sectionId);
+    }
+  };
+
+  // Smooth scrolling function
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <nav
       className="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm"
       style={{
         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-        padding: "16px 5.5vw",
+        padding: "16px 4.5vw",
       }}
     >
       <div className="container-fluid d-flex justify-content-between">
-        {/* Logo aligned to the left */}
-        <a className="navbar-brand" href="#home">
+        {/* Logo navigates to Home */}
+        <Link to="/" className="navbar-brand">
           <img src={logo} alt="Health Inspector" width="220" />
-        </a>
+        </Link>
 
         {/* Toggle Button for Mobile */}
         <button
@@ -38,34 +66,43 @@ const Navbar = () => {
         >
           <ul className="navbar-nav gap-5">
             <li className="nav-item">
-              <a className="nav-link fw-bold text-black" href="#home">
+              <button
+                className="nav-link fw-bold text-black border-0 bg-transparent"
+                onClick={() => handleNavClick("hero")}
+              >
                 Home
-              </a>
+              </button>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-black" href="#about">
+              <button
+                className="nav-link text-black border-0 bg-transparent"
+                onClick={() => handleNavClick("about")}
+              >
                 About us
-              </a>
+              </button>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-black" href="#team">
+              <button
+                className="nav-link text-black border-0 bg-transparent"
+                onClick={() => handleNavClick("team")}
+              >
                 Team
-              </a>
+              </button>
             </li>
           </ul>
         </div>
 
         {/* Authentication Links aligned to the right */}
         <div className="d-flex align-items-center">
-          <a href="/signup" className="btn text-dark me-3 fw-semibold">
+          <Link to="/signup" className="btn text-dark me-3 fw-semibold">
             Sign up
-          </a>
-          <a
-            href="/login"
+          </Link>
+          <Link
+            to="/login"
             className="btn btn-dark px-4 rounded-pill border-0 login-button"
           >
             Login
-          </a>
+          </Link>
         </div>
       </div>
     </nav>

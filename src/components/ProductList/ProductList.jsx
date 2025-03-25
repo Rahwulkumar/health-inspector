@@ -1,9 +1,13 @@
 // src/components/ProductList/ProductList.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import "./ProductList.css";
+import doritosImage from "../../assets/images/doritto.png";
+import chipsImage from "../../assets/images/chip.png";
+import prodbg from "../../assets/images/prodbg.png";
+import search from "../../assets/images/searchIc.png";
 
 const ProductList = () => {
   const [barcode, setBarcode] = useState("");
@@ -11,10 +15,25 @@ const ProductList = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  // Adjust padding to prevent navbar overlap
+  useEffect(() => {
+    const adjustPadding = () => {
+      const navbar = document.querySelector(".navbar");
+      const header = document.querySelector(".header-section");
+
+      if (navbar && header) {
+        header.style.paddingTop = `${navbar.offsetHeight + 10}px`;
+      }
+    };
+
+    adjustPadding();
+    window.addEventListener("resize", adjustPadding);
+    return () => window.removeEventListener("resize", adjustPadding);
+  }, []);
+
   const fetchProductByBarcode = async () => {
     setLoading(true);
     setError("");
-
     try {
       const response = await fetch(`http://127.0.0.1:8000/product/${barcode}`);
       if (!response.ok) {
@@ -34,24 +53,42 @@ const ProductList = () => {
     <>
       <Navbar />
       <div className="product-list">
-        <h1 className="title">Search for Products by Barcode</h1>
-        <div className="search-container">
-          <input
-            type="text"
-            placeholder="Enter barcode..."
-            value={barcode}
-            onChange={(e) => setBarcode(e.target.value)}
-          />
-          <button onClick={fetchProductByBarcode}>Search</button>
+        <div className="header-section">
+          <img src={doritosImage} alt="Doritos" className="doritos-img" />
+          <p className="food-text">FOOD</p>
+          <img src={prodbg} alt="bg" className="bg-img" />
+          <div className="search-area">
+            <h1 className="title">Food Analysis</h1>
+            <p className="subtitle">
+              Search for any food product to reveal its ingredients and impact
+            </p>
+            <div className="search-container">
+              <input
+                type="text"
+                placeholder="Enter a product to analyze..."
+                value={barcode}
+                onChange={(e) => setBarcode(e.target.value)}
+                className="search-input"
+              />
+              <button onClick={fetchProductByBarcode} className="search-button">
+                <img src={search} alt="Search" className="search-icon" />
+              </button>
+            </div>
+          </div>
+          <img src={chipsImage} alt="Chips" className="chips-img" />
         </div>
 
         {loading && <p className="loading">Loading...</p>}
         {error && <p className="error">{error}</p>}
         {product ? (
-          <ProductCard product={product} />
+          <div className="product-container">
+            <ProductCard product={product} />
+          </div>
         ) : (
           !loading &&
-          !error && <p className="no-results">No results found. Try another barcode.</p>
+          !error && (
+            <p className="no-results">No results found. Try another barcode.</p>
+          )
         )}
       </div>
       <Footer />
