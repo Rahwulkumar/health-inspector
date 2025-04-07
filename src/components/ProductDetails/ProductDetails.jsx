@@ -13,8 +13,9 @@ const ProductDetails = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`https://your-fastapi-service.onrender.com/product/${barcode}`);
-
+        const response = await fetch(
+          `http://127.0.0.1:8000/product/${barcode}`
+        );
         if (!response.ok) throw new Error("Failed to fetch");
         const data = await response.json();
         console.log("API Response:", data);
