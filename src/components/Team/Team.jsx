@@ -36,7 +36,7 @@ const Team = () => {
           <div className="team-info">
             <h3>Rajesh Kanna Sir</h3>
             <p>Christ University</p>
-            <span>Faculty,Department of Computer Application</span>
+            <span>Faculty, Department of Computer Science</span>
           </div>
         </div>
       </div>
