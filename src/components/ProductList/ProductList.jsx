@@ -1,5 +1,5 @@
-// src/components/ProductList/ProductList.jsx
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import ProductCard from "../ProductCard/ProductCard";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -14,6 +14,7 @@ const ProductList = () => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   // Adjust padding to prevent navbar overlap
   useEffect(() => {
@@ -32,6 +33,8 @@ const ProductList = () => {
   }, []);
 
   const fetchProductByBarcode = async () => {
+    if (!barcode.trim()) return; // Don't search if barcode is empty
+
     setLoading(true);
     setError("");
     try {
@@ -46,6 +49,12 @@ const ProductList = () => {
       setProduct(null);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      fetchProductByBarcode();
     }
   };
 
@@ -68,6 +77,7 @@ const ProductList = () => {
                 placeholder="Enter a product to analyze..."
                 value={barcode}
                 onChange={(e) => setBarcode(e.target.value)}
+                onKeyPress={handleKeyPress}
                 className="search-input"
               />
               <button onClick={fetchProductByBarcode} className="search-button">
