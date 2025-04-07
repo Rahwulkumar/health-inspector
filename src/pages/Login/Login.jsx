@@ -2,6 +2,7 @@ import React from "react";
 import "./Login.css";
 import logo from "../../assets/icons/logo.svg";
 import bgImage from "../../assets/images/login-image.png";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -9,7 +10,9 @@ const Login = () => {
       <div className="login-box">
         {/* Left Side - Login Form */}
         <div className="login-left">
-          <img src={logo} alt="Health Inspector Logo" className="logo" />
+          <Link to="/" className="logo-link">
+            <img src={logo} alt="Health Inspector Logo" className="logo" />
+          </Link>
           <h2>Login</h2>
           <p>Welcome back! Please login to your account.</p>
 

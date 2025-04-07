@@ -10,9 +10,13 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="product-card" onClick={handleClick}>
-      <img src={product.image_url} alt={product.name} className="product-image" />
-      <h3 className="product-name">{product.name}</h3>
+    <div className="productList-card" onClick={handleClick}>
+      <img
+        src={product.image_url}
+        alt={product.name}
+        className="productList-image"
+      />
+      <h3 className="productList-name">{product.name}</h3>
     </div>
   );
 };

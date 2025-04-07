@@ -53,13 +53,18 @@ const Hero = () => {
               paddingRight: "30%",
               top: "-6%",
               position: "relative",
+              color: "black",
             }}
           >
             Empower. Evaluate. Evolve.
           </h1>
           <p
             className="text-muted fs-5"
-            style={{ paddingRight: "20%", position: "relative", top: "-4%" }}
+            style={{
+              paddingRight: "20%",
+              position: "relative",
+              top: "-4%",
+            }}
           >
             Welcome to HealthInspector, the ultimate platform made to provide
             comprehensive reviews and in-depth insights into food and cosmetic
