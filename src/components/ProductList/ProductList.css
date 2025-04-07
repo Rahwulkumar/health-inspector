@@ -122,6 +122,7 @@
 
 /* Enlarged Search Input */
 .search-input {
+  color: black;
   width: 100%;
   padding: 16px 60px 16px 20px;
   font-size: 1.4rem;

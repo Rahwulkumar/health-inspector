@@ -84,10 +84,30 @@ const ProductDetails = () => {
     },
   };
 
-  // Check and handle the structure of your API response
-  // Adapt this based on the actual structure of your API response
-  const nutrientLevels = product.nutrient_levels || {};
+  // Determine nutrient levels using thresholds if not available
+  const determineNutrientLevel = (key, value) => {
+    const thresholds = {
+      fat: [3, 17.5],
+      "saturated-fat": [1.5, 5],
+      sugars: [5, 22.5],
+      salt: [0.3, 1.5],
+    };
+
+    if (!thresholds[key]) return "N/A";
+
+    if (value <= thresholds[key][0]) return "low";
+    if (value <= thresholds[key][1]) return "moderate";
+    return "high";
+  };
+
   const nutriments = product.nutriments || {};
+  const displayedNutrientLevels = Object.keys(nutrientDisplayNames).reduce((acc, key) => {
+    if (nutriments[`${key}_100g`] !== undefined) {
+      const level = determineNutrientLevel(key, nutriments[`${key}_100g`]);
+      acc[key] = level;
+    }
+    return acc;
+  }, {});
 
   return (
     <>
@@ -136,21 +156,20 @@ const ProductDetails = () => {
         {/* Nutrient Levels Section */}
         <div className="nutrient-section">
           <h2>Nutrient Levels</h2>
-          {Object.keys(nutrientLevels).length > 0 ? (
-            Object.entries(nutrientLevels).map(([key, level]) => (
+          {Object.keys(displayedNutrientLevels).length > 0 ? (
+            Object.entries(displayedNutrientLevels).map(([key, level]) => (
               <div key={key} className="nutrient-item">
                 <div className="nutrient-header">
                   <span className="nutrient-icon" style={{ backgroundColor: getNutrientColor(level) }} />
                   <span className="nutrient-text">
-                    {nutrientDisplayNames[key] || key} in {level} quantity (
-                    {nutriments && nutriments[`${key}_100g`] !== undefined
+                    {nutrientDisplayNames[key]}: {level} (
+                    {nutriments[`${key}_100g`] !== undefined
                       ? `${nutriments[`${key}_100g`]}g`
                       : "N/A"}
                     )
                   </span>
                 </div>
 
-                {/* High Level Warning Details */}
                 {level === "high" && nutrientMessages[key]?.high && (
                   <details>
                     <summary>Why is this high?</summary>
@@ -184,7 +203,7 @@ const ProductDetails = () => {
                     <tr key={baseName}>
                       <td>{baseName.replace(/_/g, " ").toUpperCase()}</td>
                       <td>{value || "?"}</td>
-                      <td>{product.nutritional_facts[baseName + "_serving"] || "?"}</td>
+                      <td>{product.nutritional_facts[`${baseName}_serving`] || "?"}</td>
                     </tr>
                   );
                 })}
